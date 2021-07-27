@@ -12,10 +12,12 @@ export const TextWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ $red?: boolean }>`
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+  
+  color: ${({ $red, theme }) => $red && theme.colors.error};
 `;
 
 export const Person = styled(BsPersonFill)`
@@ -25,8 +27,10 @@ export const Person = styled(BsPersonFill)`
   color: ${({ theme }) => theme.colors.shadowText};
 `;
 
-export const Input = styled(ClearInput)`
+export const Input = styled(ClearInput)<{ $red: boolean }>`
   top: 0;
   left: 0;
   height: 40px;
+  color: ${({ $red, theme }) => $red && theme.colors.error};
+  border-color: ${({ $red, theme }) => $red && theme.colors.error};
 `;

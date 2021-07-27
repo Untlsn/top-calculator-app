@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ClearInput = styled.input.attrs({ type: 'number' })`
+const ClearInput = styled.input`
   border: 2px solid transparent;
   border-radius: 5px;
   font-size: 24px;
@@ -12,9 +12,6 @@ const ClearInput = styled.input.attrs({ type: 'number' })`
   &:hover { 
     cursor: pointer;
     border-color: ${({ theme }) => theme.colors.selected};
-  }
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
   }
 `;
 

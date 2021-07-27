@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-export { default as TipInput } from '~/components/atoms/ClearInput';
+import styled, { css } from 'styled-components';
+import ClearInput from '~/components/atoms/ClearInput';
 
 export const Wrapper = styled.div`
   
@@ -17,7 +17,7 @@ export const Text  = styled.p`
   margin: 0 0 20px;
 `;
 
-export const TipButton = styled.div`
+export const TipButton = styled.div<{ $selected: boolean }>`
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.darkBackground};
   border-radius: 5px;
@@ -27,7 +27,14 @@ export const TipButton = styled.div`
   
   &:hover { 
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.darkBackground};
-    background-color: ${({ theme }) => theme.colors.selected};
   }
+  
+  ${({ $selected, theme }) => $selected && css`
+    color: ${theme.colors.darkBackground};
+    background-color: ${theme.colors.selected};
+  `}
+`;
+
+export const TipInput = styled(ClearInput)<{ $empty: boolean }>`
+  text-align: ${({ $empty }) => $empty && 'center'};
 `;
