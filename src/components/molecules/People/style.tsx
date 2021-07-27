@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 import ClearInput from '~/components/atoms/ClearInput';
+import { BsPersonFill } from 'react-icons/bs';
 
 export const Wrapper = styled.div`
   position: relative;
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 export const Text = styled.p`
@@ -11,9 +18,10 @@ export const Text = styled.p`
   margin: 0;
 `;
 
-export const Dollar = styled.label`
+export const Person = styled(BsPersonFill)`
   position: absolute;
   left: 10px;
+  bottom: 15px;
   color: ${({ theme }) => theme.colors.shadowText};
 `;
 
