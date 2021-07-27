@@ -6,16 +6,18 @@ export const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: min(1vw, 1vh);
-    overflow-x: hidden;
+    overflow: hidden;
   }
   body {
-    overflow-x: hidden;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
+    overflow: hidden;
+    font-family: 'Space Mono', sans-serif;
+    font-size: 24px;
     font-weight: 300;
     margin: 0;
     min-height: 100vh;
-
+    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.fill};
+    
     &::-webkit-scrollbar {
       width: 10px;
     }
