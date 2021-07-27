@@ -9,8 +9,10 @@ const Bill = () => {
   return (
     <S.Wrapper>
       <S.Text>Bill</S.Text>
-      <S.Dollar htmlFor='bill-input'>$</S.Dollar>
-      <S.Input id='bill-input' value={bill} onChange={handleChange(editBill, 'number')} />
+      <S.Centering>
+        <S.Dollar htmlFor='bill-input'>$</S.Dollar>
+        <S.Input id='bill-input' value={bill} onChange={handleChange(editBill, 'number')} />
+      </S.Centering>
     </S.Wrapper>
   );
 };

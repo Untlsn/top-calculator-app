@@ -23,7 +23,6 @@ export const Text = styled.p<{ $red?: boolean }>`
 export const Person = styled(BsPersonFill)`
   position: absolute;
   left: 10px;
-  bottom: 15px;
   color: ${({ theme }) => theme.colors.shadowText};
 `;
 
@@ -33,4 +32,9 @@ export const Input = styled(ClearInput)<{ $red: boolean }>`
   height: 40px;
   color: ${({ $red, theme }) => $red && theme.colors.error};
   border-color: ${({ $red, theme }) => $red && theme.colors.error};
+`;
+
+export const Centering = styled.div`
+  display: flex;
+  align-items: center;
 `;

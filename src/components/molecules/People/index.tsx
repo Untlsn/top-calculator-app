@@ -12,8 +12,10 @@ const People = () => {
         <S.Text>Number  of  people</S.Text>
         {people === 0 && <S.Text $red>Can’t   be   zero</S.Text>}
       </S.TextWrapper>
-      <S.Person />
-      <S.Input $red={people === 0} value={people} onChange={handleChange(editPeople, 'number')} />
+      <S.Centering>
+        <S.Person />
+        <S.Input $red={people === 0} value={people} onChange={handleChange(editPeople, 'number')} />
+      </S.Centering>
     </S.Wrapper>
   );
 };

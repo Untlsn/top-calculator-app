@@ -1,33 +1,23 @@
 import React, { useContext } from 'react';
 import * as S from './style';
 import * as Store from '~/providers/StoreProvider';
+import ResultText from '~/components/molecules/ResultText';
+import ResetButton from '~/components/atoms/ResetButton';
 
 const LeftPart = () => {
-  const [tips, editTips] = useContext(Store.Tips);
-  const [people, editPeople] = useContext(Store.People);
-  const [bill, editBill] = useContext(Store.Bill);
+  const tips = useContext(Store.Tips)[0];
+  const people = useContext(Store.People)[0];
+  const bill = useContext(Store.Bill)[0];
 
   const fullTips = bill * (tips / 100);
   const tipPerPerson = people ? fullTips / people : 0;
   const totalPerPerson = people ? bill / people : 0;
 
-  const clear = () => {
-    editTips(0);
-    editBill(0);
-    editPeople('');
-  };
-
   return (
     <S.Wrapper>
-      <S.TextWrapper>
-        <S.PerPerson>Tip Amount</S.PerPerson>
-        <S.BigResult>{tipPerPerson.toFixed(2)}</S.BigResult>
-      </S.TextWrapper>
-      <S.TextWrapper>
-        <S.PerPerson>Total</S.PerPerson>
-        <S.BigResult>{totalPerPerson.toFixed(2)}</S.BigResult>
-      </S.TextWrapper>
-      <S.ResetButton onClick={clear}>reset</S.ResetButton>
+      <ResultText per='Tip Amount'>{tipPerPerson.toFixed(2)}</ResultText>
+      <ResultText per='Total'>{totalPerPerson.toFixed(2)}</ResultText>
+      <ResetButton />
     </S.Wrapper>
   );
 };

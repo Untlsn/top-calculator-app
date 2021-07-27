@@ -6,15 +6,25 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   height: 90vh;
+
+  @media (orientation: portrait) {
+    justify-content: start;
+  }
 `;
 
 export const Frame = styled.div`
-  width: 65vw;
-  height: 55vh;
+  width: min(1000px, 95vw);
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 25px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  @media (max-width: 750px) {
+    grid-template-rows: 1fr 1fr;
+    width: 100vw;
+  }
+  @media (min-width: 751px) {
+    grid-template-columns: 1fr 1fr;
+    height: 441px;
+  }
   padding: 5rem;
   gap: 4rem;
 `;
@@ -24,5 +34,5 @@ export const TitledText = styled.div`
   font-size: 24px;
   width: 100px;
   text-align: center;
-  margin: 0 auto;
+  margin: 5rem auto;
 `;

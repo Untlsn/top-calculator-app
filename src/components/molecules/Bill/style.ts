@@ -22,3 +22,8 @@ export const Input = styled(ClearInput)`
   left: 0;
   height: 40px;
 `;
+
+export const Centering = styled.div`
+  display: flex;
+  align-items: center;
+`;

@@ -10,6 +10,12 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   height: 60%;
   gap: 10px;
+
+
+  @media (orientation: portrait) {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const Text  = styled.p`
