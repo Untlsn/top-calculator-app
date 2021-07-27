@@ -31,8 +31,14 @@ export const TipButton = styled.div<{ $selected: boolean }>`
   
   ${({ $selected, theme }) => $selected && css`
     color: ${theme.colors.darkBackground};
-    background-color: ${theme.colors.selected};
+    background-color: ${theme.colors.preSelect};
   `}
+
+  &:hover {
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.darkBackground};
+    background-color: ${({ theme }) => theme.colors.selected};
+  }
 `;
 
 export const TipInput = styled(ClearInput)<{ $empty: boolean }>`

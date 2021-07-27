@@ -16,6 +16,7 @@ export const Frame = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 5rem;
+  gap: 4rem;
 `;
 
 export const TitledText = styled.div`

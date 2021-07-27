@@ -1,15 +1,15 @@
 import React, { createContext, useState } from 'react';
 import { OnlyChildren } from '~/types/only';
 
-type StateResult = [number, React.Dispatch<React.SetStateAction<number>>]
+type StateResult<T> = [T, React.Dispatch<React.SetStateAction<T>>]
 
-export const Bill = createContext<StateResult>([0, () => {}] as any);
-export const People = createContext<StateResult>([0, () => {}] as any);
-export const Tips = createContext<StateResult>([0, () => {}] as any);
+export const Bill = createContext<StateResult<number>>([0, () => {}] as any);
+export const People = createContext<StateResult<number|''>>(['', () => {}] as any);
+export const Tips = createContext<StateResult<number>>([0, () => {}] as any);
 
 const StoreProvider = ({ children }: OnlyChildren) => {
   const [bill, editBill] = useState(0);
-  const [people, editPeople] = useState<number|undefined>();
+  const [people, editPeople] = useState<number|''>('');
   const [tips, editTips] = useState(0);
 
   if (bill > 1000000) editBill(1000000);
