@@ -3,9 +3,13 @@ import * as S from './style';
 import * as Store from '~/providers/StoreProvider';
 
 const LeftPart = () => {
-  const [, editTips] = useContext(Store.Tips);
-  const [, editPeople] = useContext(Store.People);
-  const [, editBill] = useContext(Store.Bill);
+  const [tips, editTips] = useContext(Store.Tips);
+  const [people, editPeople] = useContext(Store.People);
+  const [bill, editBill] = useContext(Store.Bill);
+
+  const fullTips = bill * (tips / 100);
+  const tipPerPerson = people ? fullTips / people : 0;
+  const totalPerPerson = people ? bill / people : 0;
 
   const clear = () => {
     editTips(0);
@@ -17,11 +21,11 @@ const LeftPart = () => {
     <S.Wrapper>
       <S.TextWrapper>
         <S.PerPerson>Tip Amount</S.PerPerson>
-        <S.BigResult>0.00</S.BigResult>
+        <S.BigResult>{tipPerPerson.toFixed(2)}</S.BigResult>
       </S.TextWrapper>
       <S.TextWrapper>
         <S.PerPerson>Total</S.PerPerson>
-        <S.BigResult>0.00</S.BigResult>
+        <S.BigResult>{totalPerPerson.toFixed(2)}</S.BigResult>
       </S.TextWrapper>
       <S.ResetButton onClick={clear}>reset</S.ResetButton>
     </S.Wrapper>
